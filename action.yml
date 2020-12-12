@@ -2,7 +2,7 @@ name: 'Trellis Deploy'
 description: |
   Deploy Trellis, Bedrock and Sage(optional) via Github Actions
 branding:
-  icon: 'upload-cloud'  
+  icon: 'upload-cloud'
   color: 'blue'
 inputs:
     role_file:
@@ -41,10 +41,10 @@ inputs:
       description: Group vars where sites are defined.
       default: false #defaults to `group_vars/${site_env}/wordpress_sites.yml` in js
       required: false
-    verbose: 
+    verbose:
       default: false
       required: false
-    ansible_strategy: 
+    ansible_strategy:
       description: Ansible strategy to use, supports mitogen.
       default: linear
       required: false
@@ -54,7 +54,7 @@ inputs:
       required: false
 runs:
   using: 'docker'
-  image: 'docker://steenbergendesign/github-action-trellis:latest'
+  image: 'docker://danlapteacru/trellis-action:latest'
   env:
     ANSIBLE_HOST_KEY_CHECKING: false
     ANSIBLE_STRATEGY_PLUGINS: /usr/lib/python3.6/site-packages/ansible_mitogen/plugins/strategy
